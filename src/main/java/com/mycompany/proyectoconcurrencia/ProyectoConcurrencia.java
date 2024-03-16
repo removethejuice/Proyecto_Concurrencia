@@ -32,8 +32,8 @@ public class ProyectoConcurrencia {
 
     public boolean containsWord(String word) {
         boolean flag =wordSet.contains(word);// aca sucede la magia, basicamente si hay un numero o un simbolo# o @ (podemos agregar mas en el futuro) entonces se borra la palabra
-        String regex = ".*\\d+.*";
-         String regex2 = ".*[@#].*";
+        String regex = ".*\\d+.*";//este regex es como un regex que tiene los digitos entonces si la letra tiene digitos entonces no pasa
+         String regex2 = ".*[@#].*";// aca van el resto de caracteres que no se permiten como @ o #
          if (word.matches(regex) || word.matches(regex2)){
          return true;
          }
