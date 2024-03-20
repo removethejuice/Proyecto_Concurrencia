@@ -83,11 +83,11 @@ public class TopWords {
         int minimum = Integer.MIN_VALUE; // Initialize to the smallest possible integer
 
         while ((line = br.readLine()) != null) {
-            String[] parts = line.split(" ");
+            String[] parts = line.split("\t");
             if (parts.length == 2) {
                 String word = parts[0];
                 int number = Integer.parseInt(parts[1]);
-                if (number >= 2000) {
+                if (number >= 20) {
                     bw.write(line);
                     bw.newLine(); // Write the line to the output file
                     if (number > minimum) {
@@ -121,8 +121,8 @@ public class TopWords {
 
 
     public static void main(String[] args) {
-        String inputFilename = "word_counts.txt"; // Update with your input file path
-        String outputFilename = "output_text_file.txt"; // Update with your output file path
+        String inputFilename = "part-r-00000(2)"; // Update with your input file path
+        String outputFilename = "output_text_file2.txt"; // Update with your output file path
         TopWords filter = new TopWords(inputFilename, outputFilename);
         filter.filterLines();
     }
