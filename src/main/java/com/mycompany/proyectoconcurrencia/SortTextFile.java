@@ -47,6 +47,8 @@ public class SortTextFile {
     private void writeElementsToFile(List<String> elements) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
             for (String element : elements) {
+                element = element.replace(",", "").replace("'", "");
+                element = element.toLowerCase();
                 bw.write(element);
                 bw.newLine(); // Aca agrego un salto de linea porque    Word    Counter usa el salto de linea como delimitador
             }
