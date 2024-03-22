@@ -46,7 +46,7 @@ public class TopWords {
             if (parts.length == 2) {
                 String word = parts[0];
                 int number = Integer.parseInt(parts[1]);
-                if (number >= 20) {
+                if (number >= minimum_support) {
                     bw.write(line);
                     bw.newLine(); // Escribirlo al output
                     if (number > minimum) {
@@ -80,20 +80,10 @@ public class TopWords {
 
 
     public static void main(String[] args) {
-        if (args.length !=2){
-        System.out.println("Error ponga la cantidad apropiada de elementos");
-        return;
-        }
-        
-        int numero_integers = Integer.parseInt(args[1]);
-        
-        if (numero_integers !=1 && numero_integers!=2){
-        System.out.println("Solo se puede 1 o 2");
-        return;
-        }
-         String inputFilename = args[0];// Update with your input file path baby!
+    
+         String inputFilename = "part-r-00000(2)";// Update with your input file path baby!
         String outputFilename = "output_text_file2.txt"; // Update with your output file path
         TopWords filter = new TopWords(inputFilename, outputFilename);
-        filter.filterLines(numero_integers);
+        filter.filterLines(2);
     }
 }
